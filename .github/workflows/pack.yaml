@@ -1,9 +1,5 @@
 name: Pack and Release
 
-on:
-  push:
-    tags:
-      - '*'
 
 jobs:
   packwizInstall:

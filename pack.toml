@@ -1,0 +1,13 @@
+name = "Mini 2024"
+author = "Syntax Error"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "6b5edc8c240dd8f31c21456842edd6be6d9a00e8a10a0eb750f32d31d0384837"
+
+[versions]
+minecraft = "1.20.1"
+neoforge = "47.1.106"

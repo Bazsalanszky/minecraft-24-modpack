@@ -1,0 +1,31 @@
+name: Pack
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  packwizInstall:
+    runs-on: ubuntu-latest
+    container:
+      image: bazsalanszky/packwiz-installer
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run packwiz installer
+        run: java -jar /packwiz-installer-bootstrap.jar -g "file://$PWD/pack.toml" || echo "Done"
+      - name: Install zip
+        run: |
+          apk update
+          apk add zip
+      - name: Pack mods.zip
+        run: cd mods && zip mods.zip *.jar
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            mods/mods.zip
+          draft: false
+          prerelease: false

@@ -1,4 +1,4 @@
-name: Pack and Release
+name: Pack
 
 on: push
 
